@@ -2476,14 +2476,14 @@
         ]
       },
       {
+        "type": "text",
+        "id": "home-full-width-cta-1-title",
+        "label": "Title"
+      },
+      {
         "type": "textarea",
         "id": "home-full-width-cta-1-text",
         "label": "Text"
-      },
-      {
-        "type": "text",
-        "id": "home-full-width-cta-1-title",
-        "label": "Button Text"
       },
       {
         "type": "select",
