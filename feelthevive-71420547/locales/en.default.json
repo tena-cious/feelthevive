@@ -24,7 +24,7 @@
     "tax": "Tax",
     "total": "Total",
     "subscribe": "Subscribe",
-    "copyright_text_html": "&copy; {{ year }}. All rights reserved.",
+    "copyright_text_html": "COPYRIGHT {{ year }} &copy;",
     "404": {
       "title": "Page not found",
       "link": "Continue shopping",
@@ -274,6 +274,14 @@
     "full_width_section": {
       "section_title": "Full width feature",
       "text": "You can have up to three full width features that can contain a large image or video and an optional call to action button."
+    },
+    "full_width_video": {
+      "section_title": "Full width video embed",
+      "text": "You can have a full width video embed that can contain a large video."
+    },
+    "full_width_cta": {
+      "section_title": "Full width CTA",
+      "text": "You can have a full width CTA that can contain an image and clickable button."
     },
     "alternating_features_section": {
       "section_title": "Left\/right alternating features",

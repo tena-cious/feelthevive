@@ -2105,7 +2105,7 @@
       {
         "type": "text",
         "id": "home-sections-order",
-        "label": "A: Full-Width Features B: Alternating Features C: In-Line Features D: Testimonials E: Order Now F: Featured Collections G: Featured Products H: Featured Blog I: As Seen On J: Instagram Widget",
+        "label": "A: Full-Width Features B: Alternating Features C: In-Line Features D: Testimonials E: Order Now F: Featured Collections G: Featured Products H: Featured Blog I: As Seen On J: Instagram Widget Z: Full-Width Video Y: Full-Width CTA",
         "info": "Example: A-D-B."
       }
     ]
@@ -2352,6 +2352,182 @@
       {
         "type": "text",
         "id": "home-full-width-3-url",
+        "label": "URL"
+      }
+    ]
+  },
+  {
+    "name": "Home: Full-Width Video",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "This section is designed to showcase a video."
+      },
+      {
+        "type": "header",
+        "content": "Feature 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "home-show-full-width-video-1",
+        "label": "Enable Feature"
+      },
+      {
+        "type": "select",
+        "id": "home-full-width-video-1-style",
+        "label": "Style",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "contrast",
+            "label": "Contrast"
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-video-1-title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "home-full-width-video-1-text",
+        "label": "Text"
+      },
+      {
+        "type": "select",
+        "id": "home-full-width-video-1-media",
+        "label": "Media",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video-regular",
+            "label": "Video - Regular"
+          },
+          {
+            "value": "video-highlight",
+            "label": "Video - Highlight"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "home-full-width-video-1-image.png",
+        "label": "Image",
+        "max-width": 960,
+        "max-height": 9999
+      },
+      {
+        "type": "textarea",
+        "id": "home-full-width-video-1-video",
+        "label": "Video Embed"
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-video-1-cta",
+        "label": "Call to Action"
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-video-1-url",
+        "label": "URL"
+      }
+    ]
+  },
+  {
+    "name": "Home: Full-Width CTA",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "This section is designed to showcase a specific CTA."
+      },
+      {
+        "type": "header",
+        "content": "Feature 1"
+      },
+      {
+        "type": "checkbox",
+        "id": "home-show-full-width-cta-1",
+        "label": "Enable Feature"
+      },
+      {
+        "type": "select",
+        "id": "home-full-width-1-cta-style",
+        "label": "Style",
+        "options": [
+          {
+            "value": "default",
+            "label": "Default"
+          },
+          {
+            "value": "contrast",
+            "label": "Contrast"
+          }
+        ]
+      },
+      {
+        "type": "textarea",
+        "id": "home-full-width-cta-1-text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-cta-1-title",
+        "label": "Button Text"
+      },
+      {
+        "type": "select",
+        "id": "home-full-width-cta-1-media",
+        "label": "Media",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "image",
+            "label": "Image"
+          },
+          {
+            "value": "video-regular",
+            "label": "Video - Regular"
+          },
+          {
+            "value": "video-highlight",
+            "label": "Video - Highlight"
+          }
+        ]
+      },
+      {
+        "type": "image",
+        "id": "home-full-width-cta-1-image.png",
+        "label": "Image",
+        "max-width": 960,
+        "max-height": 9999
+      },
+      {
+        "type": "textarea",
+        "id": "home-full-width-cta-1-video",
+        "label": "Video Embed"
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-cta-1-cta",
+        "label": "Call to Action"
+      },
+      {
+        "type": "text",
+        "id": "home-full-width-cta-1-url",
         "label": "URL"
       }
     ]
