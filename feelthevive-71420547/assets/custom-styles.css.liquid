@@ -1,10 +1,28 @@
+body {
+    font-size: 16px;
+}
 body, h1, h2, h3, h4, h5, h6 {
     font-family: 'Venti', Calibri, Futura, sans-serif;
-    font-size: 16px;
+}
+
+.main-content {
+  padding: 20px 0 0;
 }
 
 
 /**** FONT STYLING ****/
+h3.section-title { 
+  font-size: 34px; 
+  font-weight: normal;
+}
+.home-in-line-feature h3 { 
+  font-size: 24px;
+}
+
+.contrast .home-module .section-title, .contrast .home-module footer h4, footer .contrast .home-module h4 {
+  color: #ee7421;
+}
+
 .text-right { text-align: right; }
 
 
@@ -17,9 +35,76 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 
+/**** FOOTER ****/
+.footer-link-list li {
+  margin: 0;
+}
+
+#mc_embed_signup {
+  text-align: justify;
+}
+#mc_embed_signup h2 {
+  color: #ee7421;
+  font-size: 24px;
+  font-weight: normal;
+  margin: 0;
+}
+.mc-field-group { 
+  margin: 4px 0;
+}
+.mc-field-group input[type="text"], .mc-field-group input[type="email"], .mc-field-group input[type="password"], .mc-field-group input[type="search"], .mc-field-group input[type="telephone"], .mc-field-group input[type="tel"], .mc-field-group input[type="number"] { 
+  color: #868686;
+  padding: 4px 14px;
+  height: auto;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+#mc_embed_signup .button, #mc_embed_signup .submit, #mc_embed_signup button, #mc_embed_signup input[type="submit"], #mc_embed_signup input[type="button"] {
+  background: #3cc3b2;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  height: auto;
+  width: 100%;
+  line-height: 1.6;
+}
+#mc_embed_signup .button:hover, #mc_embed_signup .submit:hover, #mc_embed_signup button:hover, #mc_embed_signup input[type="submit"]:hover, #mc_embed_signup input[type="button"]:hover {
+  background: #319186;
+}
+
+.copyright {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  color: #e2e2e2;
+  text-align: center;
+  padding: .8em 0;
+}
+
 
 /**** MISC ****/
+.contrast { 
+  background: #eee; 
+}
 
+
+
+/**** COLLECTION PAGE ****/
+.template-collection h1.page-title { display: none; }
+.template-collection h2.collection-description {
+  color: #ee7421;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 70px;
+}
+.collection-products { 
+  margin: 30px 0; 
+}
+
+.product-list-item-details h1, .product-list-item-details p:not(.product-list-item-vendor) { 
+  display: inline-block;
+}
+.product-list-item-details p:before {
+  content: " | ";
+}
 
 
 /**** PASSWORD PAGE ****/
@@ -247,7 +332,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 
 
-/**** FONTS ****//
+/**** FONTS ****/
 @font-face {
     font-family: 'Venti';
     src: url('venticf-demibold-webfont.eot');

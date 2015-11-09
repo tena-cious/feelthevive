@@ -141,6 +141,13 @@
       {% include 'share-buttons' %}
     {% endif %}
 
+    {% if product.metafields.ingredients %}
+      {% assign ingredients = product.metafields.ingredients %}
+      {% assign key = 'active' %}
+      <p><strong>Active Ingredients</strong><br>
+        {{ ingredients.active }}</p>
+    {% endif %}
+
   </div>
 </div><!-- close itemscope -->
 

@@ -1,8 +1,8 @@
 {% capture collectionDescription %}
   {% if collection.description != blank and settings.collection-show-description %}
-    <div class="collection-description rte">
+    <h2 class="collection-description rte">
       {{ collection.description }}
-    </div>
+    </h2>
   {% endif %}
 {% endcapture %}
 
@@ -22,6 +22,14 @@
 {% endif %}
 
 {% paginate collection.products by settings.collection-products-per-page %}
+
+<div class="collection-products products-per-row-{{settings.collection-products-per-row}}">
+  {% for product in collection.products %}
+    {% include 'product-list-item' %}
+  {% else %}
+    <p class="empty">{{ 'collections.collection.no_products' | t }}</p>
+  {% endfor %}
+</div>
 
 {% if collection.all_tags.size > 0 and settings.collection-enable-tag-filtering %}
 <div class="collection-tag-selector">
@@ -64,14 +72,6 @@
 
 </div>
 {% endif %}
-
-<div class="collection-products products-per-row-{{settings.collection-products-per-row}}">
-  {% for product in collection.products %}
-    {% include 'product-list-item' %}
-  {% else %}
-    <p class="empty">{{ 'collections.collection.no_products' | t }}</p>
-  {% endfor %}
-</div>
 
 
 {% if paginate.previous or paginate.next %}

@@ -40,7 +40,7 @@
       </div>
 
       {% if product.images.size > 1 %}
-      <div class="product-thumbnails">
+      <div class="product-thumbnails" style="display: none;">
         {% for image in product.images %}
           <img alt="{{ image.alt }}" data-high-res="{{ image | product_img_url: 'master' }}" src="{{ image | product_img_url: 'thumb' }}" class="{% if image == featured_image %}active{% endif %}">
         {% endfor %}
@@ -66,6 +66,12 @@
           </span>
         </p>
       </div>
+
+      {% if settings.home-order-now-description.size > 0 %}
+      <div class="product-description rte">
+        {{ settings.home-order-now-description }}
+      </div>
+      {% endif %}
 
       <form class="product-form" action="/cart/add" method="post">
 
@@ -117,12 +123,6 @@
         </div>
 
       </form>
-
-      {% if settings.home-order-now-description.size > 0 %}
-      <div class="product-description rte">
-        {{ settings.home-order-now-description }}
-      </div>
-      {% endif %}
 
       {% if settings.product-show-info-link-1 or settings.product-show-info-link-2 %}
       <div class="product-more-info">
