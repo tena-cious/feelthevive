@@ -974,9 +974,9 @@
       instagramWidget = this.$('.home-instagram');
       photoContainer = this.$('.instagram-photos');
       if (Theme.showInstagramTag) {
-        url = "https://api.instagram.com/v1/tags/" + Theme.instagramTag + "/media/recent?access_token=" + Theme.instagramAccessToken + "&count=6&callback=";
+        url = "https://api.instagram.com/v1/tags/" + Theme.instagramTag + "/media/recent?access_token=" + Theme.instagramAccessToken + "&count=8&callback=";
       } else {
-        url = "https://api.instagram.com/v1/users/self/media/recent?access_token=" + Theme.instagramAccessToken + "&count=6&callback=";
+        url = "https://api.instagram.com/v1/users/self/media/recent?access_token=" + Theme.instagramAccessToken + "&count=8&callback=";
       }
       return $.ajax({
         type: "GET",
