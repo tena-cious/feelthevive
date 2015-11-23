@@ -9,34 +9,29 @@
           <img src="{{ 'hero_about.jpg' | asset_url }}" alt="FEEL THE VIVE" class="slide-image">
           <div class="slide-text ">
               <h2>FEEL<br>THE<br>VIVE</h2>
-              <!--<a href="#" class="button"><img src="{{ 'button_sample.png' | asset_url }}" alt="Grab up your free sample"></a>-->
-	            {% if settings.slide-1-cta.size > 0 and settings.slide-1-url.size > 0 %}
-	              <a class="button" href="{{ settings.slide-1-url }}">{{ settings.slide-1-cta }}</a>
-	            {% endif %}
+              <a href="#" class="button"><img src="{{ 'button_sample.png' | asset_url }}" alt="Grab up your free sample"></a>
           </div>
       </div>
     
   </div>
 </div>
 
-<!--<div class="home-module-wrapper">
+<div class="home-module-wrapper">
 	<div class="home-module home-in-line-features">
 		<h2>{{ pages[tech_page_handle].title | remove_first: "About" }}</h2>
 		{{ pages[tech_page_handle].content }}
 	</div>
-</div>-->
+</div>
 
-<div class="home-module-wrapper">
+<div class="home-module-wrapper contrast">
 	<div class="home-module home-full-width-feature has-content">
-		<h2>{{ page.title }}</h2>
-		
 		<div class="rte">
 		  {{ page.content }}
 		</div>
 	</div>
 </div>
 
-<div class="home-module-wrapper contrast">
+<div class="home-module-wrapper">
 	<div class="home-module home-full-width-feature has-content">
 		<h2>{{ pages[founders_page_handle].title }}</h2>
 		<div class="rte">

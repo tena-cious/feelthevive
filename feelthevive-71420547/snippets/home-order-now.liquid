@@ -54,7 +54,7 @@
         {% if settings.product-display-vendor %}
           <p class="meta vendor">{{ product.vendor }}</p>
         {% endif %}
-        <h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
+        <h2><a href="{{ product.url }}">{{ product.title }} Subscription</a></h2>
         <p class="product-price">
           <span class="price">
             <span class="money">{{ selectedVariant.price | money }}</span>
@@ -69,13 +69,21 @@
 
       {% if settings.home-order-now-description.size > 0 %}
       <div class="product-description rte">
-        {{ settings.home-order-now-description }}
+        <p>{{ settings.home-order-now-description }}</p>
+
+        <p><a href="{{ product.url }}">Read More</a></p>
+      </div>
+      {% else %}
+      <div class="product-description rte">
+        <p>{{ product.description }}</p>
+
+        <p><a href="{{ product.url }}">Read More</a></p>
       </div>
       {% endif %}
 
       <form class="product-form" action="/cart/add" method="post">
 
-        {% if product.variants.size > 1 %}
+        {% if product.variants.size > 6 %}
           <div class="product-options">
             <select name="id" id="product-select" class="product-select">
               {% for variant in product.variants %}
@@ -87,10 +95,10 @@
           <input type="hidden" name="id" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
         {% endif %}
 
-        <div class="input-wrapper product-quantity">
+        <!--<div class="input-wrapper product-quantity">
           <label for="quantity">{{ 'general.quantity' | t }}</label>
           <input type="text" name="quantity" id="quantity" value="1" />
-        </div>
+        </div>-->
 
         <div class="add-to-cart {% if settings.home-order-now-enable-express %}express{% endif %}">
           {% if product.available %}

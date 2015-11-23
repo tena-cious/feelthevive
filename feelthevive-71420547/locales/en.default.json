@@ -257,7 +257,8 @@
       "cart_link": "cart",
       "continue_link": "continue shopping",
       "checkout_link": "check out",
-      "success_html": "{{ product }} has been successfully added to your {{ cart_link }}. Feel free to {{ continue_link }} or {{ checkout_link }}.",
+      // "success_html": "{{ product }} has been successfully added to your {{ cart_link }}. Feel free to {{ continue_link }} or {{ checkout_link }}.",
+      "success_html": "{{ product }} has been successfully added to your {{ cart_link }}.<br>Feel free to {{ continue_link }}.",
       "unavailable": "Unavailable",
       "no_image_available": "No image available"
     },

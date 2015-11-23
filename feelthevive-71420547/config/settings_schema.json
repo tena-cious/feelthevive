@@ -3975,6 +3975,76 @@
     ]
   },
   {
+    "name": "Collection: Testimonials",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "testimonial-show-featured-image",
+        "label": "Display Featured Image"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial-show-description",
+        "label": "Display Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "testimonial-enable-tag-filtering",
+        "label": "Enable Tag Filtering"
+      },
+      {
+        "type": "select",
+        "id": "testimonial-products-per-row",
+        "label": "Products Per Row",
+        "options": [
+          {
+            "value": "1",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "label": "4"
+          }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "testimonial-products-per-page",
+        "label": "Products Per Page",
+        "options": [
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "6",
+            "label": "6"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          },
+          {
+            "value": "10",
+            "label": "10"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "Products",
     "settings": [
       {

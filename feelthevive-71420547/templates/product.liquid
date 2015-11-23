@@ -84,17 +84,20 @@
         <input type="text" name="quantity" id="quantity" value="1" />
       </div>
 
-      <div class="add-to-cart">
+      <div class="add-to-cart cf">
         {% if product.available %}
-          <div class="product-form-submit-wrap">
+          <div class="product-form-submit-wrap left">
             <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
             <div class="add-to-cart-loader"></div>
           </div>
+
+          <p class="product-add-success-message left"><a class="button secondary" href="/checkout">{{ 'products.product.checkout_link' | t }}</a></p>
+
           {% capture cart_link %}
             <a href="/cart">{{ 'products.product.cart_link' | t }}</a>
           {% endcapture %}
           {% capture continue_link %}
-            <a href="/collections/all">{{ 'products.product.continue_link' | t }}</a>
+            <a href="/collections/vive-subscriptions">{{ 'products.product.continue_link' | t }}</a>
           {% endcapture %}
           {% capture checkout_link %}
             <a href="/checkout">{{ 'products.product.checkout_link' | t }}</a>
@@ -102,7 +105,9 @@
           {% capture product_item %}
             <span class='added-product-name'></span>
           {% endcapture %}
+          <div style="clear:both; height: 0;">&nbsp;</div>
           <p class="product-add-success-message">{{ 'products.product.success_html' | t: cart_link: cart_link, continue_link: continue_link, checkout_link: checkout_link, product: product_item  }}</p>
+
           <p class="product-add-error-message"></p>
         {% else %}
           <input type="button" class="disabled" disabled="disabled" value="{{ 'products.product.sold_out' | t }}" />
@@ -146,6 +151,13 @@
       {% assign key = 'active' %}
       <p><strong>Active Ingredients</strong><br>
         {{ ingredients.active }}</p>
+    {% endif %}
+
+
+    {% if product.metafields.disclaimers %}
+      {% assign disclaimers = product.metafields.disclaimers %}
+      {% assign key = 'disclaimer' %}
+      <p><em>{{ disclaimers.disclaimer }}</em></p>
     {% endif %}
 
   </div>

@@ -19,8 +19,16 @@ h3.section-title {
   font-size: 24px;
 }
 
+.home-testimonials { 
+  font-size: 1rem;
+}
+
 .contrast .home-module .section-title, .contrast .home-module footer h4, footer .contrast .home-module h4 {
   color: #ee7421;
+}
+
+.rte p, .rte ul, .rte ol, .rte dl, .rte blockquote, .rte table, .rte pre, .rte form, .rte div, .rte h1, .rte h2, .rte h3, .rte h4, .rte h5, .rte h6 { 
+  max-width: 960px;
 }
 
 .text-right { text-align: right; }
@@ -36,6 +44,7 @@ h3.section-title {
 
 
 /**** FOOTER ****/
+.footer-wrapper { margin-top: 0; }
 .footer-link-list li {
   margin: 0;
 }
@@ -48,16 +57,23 @@ h3.section-title {
   font-size: 24px;
   font-weight: normal;
   margin: 0;
+  text-align: center;
 }
 .mc-field-group { 
   margin: 4px 0;
 }
-.mc-field-group input[type="text"], .mc-field-group input[type="email"], .mc-field-group input[type="password"], .mc-field-group input[type="search"], .mc-field-group input[type="telephone"], .mc-field-group input[type="tel"], .mc-field-group input[type="number"] { 
-  color: #868686;
+.mc-field-group input[type="text"], .mc-field-group input[type="url"], .mc-field-group input[type="email"], .mc-field-group input[type="password"], .mc-field-group input[type="search"], .mc-field-group input[type="telephone"], .mc-field-group input[type="tel"], .mc-field-group input[type="number"], .mc-field-group textarea { 
+  color: #636565;
   padding: 4px 14px;
   height: auto;
   -webkit-border-radius: 0;
   border-radius: 0;
+}
+.mc-field-group input[type="url"] {
+    border: 1px solid #ede7e4;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
 }
 #mc_embed_signup .button, #mc_embed_signup .submit, #mc_embed_signup button, #mc_embed_signup input[type="submit"], #mc_embed_signup input[type="button"] {
   background: #3cc3b2;
@@ -85,12 +101,18 @@ h3.section-title {
   background: #eee; 
 }
 
+input[type="text"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="telephone"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="number"]::-moz-placeholder, textarea::-moz-placeholder {
+  color: #636565;
+}
 .button, .submit, button, input[type="submit"], input[type="button"] {
   -webkit-border-radius: 0;
   border-radius: 0;
   font-family: 'Venti', Calibri, Futura, sans-serif;
   font-size: 22px;
 }
+
+.left { float: left; }
+.right { float: right; }
 
 .cf:before, .cf:after {
     content: " "; /* 1 */
@@ -105,6 +127,9 @@ h3.section-title {
 
 
 /**** HOME PAGE ****/
+body:not(.index) .home-full-width-feature .rte {
+  text-align: left;
+}
 .home-full-width-cta {
   text-align: left;
 }
@@ -120,10 +145,56 @@ h3.section-title {
   width: 50%; 
 }
 
+.template-index .section-title, .template-index footer h4, footer .template-index h4 {
+  margin-bottom: 30px;
+}
+
+.home-in-line-features .home-in-line-text {
+  text-align: left;
+}
+
+.full-video, .home-module-wrapper.contrast.full-video, .home-module-wrapper.full-video {
+  background: #000;
+  max-height: 574px;
+}
+.home-full-width-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  padding-top: 25px;
+  height: 0;
+  max-width: 1020px;
+  max-height: 574px;
+  margin: 0 auto;
+}
+.home-full-width-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 574px;
+}
+
+.home-testimonial { 
+  width: 49%; 
+}
+.home-testimonial-avatar {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: #fff;
+  padding: 2px;
+}
+.contrast .home-testimonial-avatar {
+  background: #eee;
+}
+
 .home-instagram { 
   width: 100%;
   max-width: none;
   padding: 0;
+}
+body:not(.template-index) .home-instagram {
+  margin-top: 0;  
 }
 .instagram-photo { 
   padding: 0;
@@ -148,6 +219,32 @@ h3.section-title {
   }
 }
 
+@media only screen and (max-width: 720px) {
+  .template-index .main-header-wrapper:not(.sticky-header) {
+    position: static;
+  }
+
+  body:not(.index) .main-content {
+    margin-bottom: 30px;
+  }
+  body:not(.index) .home-slideshow-wrapper {
+    margin-bottom: 0;
+  }
+  body:not(.index) .home-slideshow-wrapper + .home-module-wrapper .home-full-width-feature {
+    padding-top: 0;
+  }
+}
+
+@media only screen and (max-width: 644px) {
+  .home-in-line-feature img {
+    max-width: 60%;
+  }
+
+  .index .home-testimonial {
+    width: 100%;
+  } 
+}
+
 
 /**** COLLECTION PAGE ****/
 .template-collection h1.page-title { display: none; }
@@ -160,12 +257,26 @@ h3.section-title {
 .collection-products { 
   margin: 30px 0; 
 }
+body.collection-testimonials .collection-products { 
+  margin: 0 0 30px 0;
+}
 
 .product-list-item-details h1, .product-list-item-details p:not(.product-list-item-vendor) { 
   display: inline-block;
 }
 .product-list-item-details p:before {
   content: " | ";
+}
+
+.product-add-success-message.left, .product-add-error-message.left {
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+@media only screen and (max-width: 644px) {
+  .collection .main-content, .product .main-content, .cart .main-content, .page .main-content {
+    padding: 20px 20px 0;
+  }
 }
 
 
@@ -180,25 +291,53 @@ body.about h2 {
   text-transform: uppercase;
   padding: 0 30px;
 }
-body.about .slide-text a.button {
-  background: none;
-  padding: 0;
-  /* color: #ee7421;
-  border-top: 4px solid #ee7421;
-  border-bottom: 4px solid #ee7421;
-  height: auto;
-  line-height: 2; */
-}
-body.about .slide-text a.button img {
-  vertical-align: middle;
-}
+/* 
+  body.about .slide-text a.button {
+    background: none;
+    padding: 0;
+    color: #ee7421;
+    border-top: 4px solid #ee7421;
+    border-bottom: 4px solid #ee7421;
+    height: auto;
+    line-height: 2; 
+  } 
+  body.about .slide-text a.button img {
+    vertical-align: middle;
+  } 
+*/
 
 
 /**** TESTIMONIALS PAGE ****/
-body.testimonials .main-content {
+body.testimonials .main-content, body.collection-testimonials .main-content {
   max-width: 100%;
   padding: 0;
   width: 100%;
+}
+
+body.collection-testimonials .collection-products {
+  width: 60%;
+  float: left;
+}
+.products-per-row-1 .home-testimonial {
+  width: 100%;
+}
+
+body.collection-testimonials .sidebar {
+  float: right;
+  width: 30%;
+  background: #e1e1e1;
+  padding: 25px 40px;
+}
+body.collection-testimonials .sidebar h4 {
+  margin-top: 0;
+  text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+  body.collection-testimonials .collection-products, body.collection-testimonials .sidebar {
+    float: none;
+    width: 100%;
+  }
 }
 
 

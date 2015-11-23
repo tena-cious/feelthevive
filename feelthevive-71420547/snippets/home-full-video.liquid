@@ -30,7 +30,7 @@
         </div>
       </div>
     {% else %}
-      <div class="home-module-wrapper {{ settings[style] }}">
+      <div class="home-module-wrapper full-video {{ settings[style] }}">
 
         {% if settings[media] == 'image-highlight' %}
           <img class="home-full-width-image" alt="{{ settings[title] | strip_html | escape }}" src="{{ feature | prepend: 'home-' | append: '-image.png' | asset_url }}">
