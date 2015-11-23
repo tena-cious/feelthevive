@@ -153,15 +153,17 @@
         {{ ingredients.active }}</p>
     {% endif %}
 
+  </div>
+
+</div><!-- close itemscope -->
 
     {% if product.metafields.disclaimers %}
       {% assign disclaimers = product.metafields.disclaimers %}
       {% assign key = 'disclaimer' %}
-      <p><em>{{ disclaimers.disclaimer }}</em></p>
+      <div class="product-wrap bottom">
+        <p><em>{{ disclaimers.disclaimer }}</em></p>
+      </div>
     {% endif %}
-
-  </div>
-</div><!-- close itemscope -->
 
 {% if settings.product-show-related %}
 
