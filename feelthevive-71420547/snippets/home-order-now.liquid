@@ -54,7 +54,7 @@
         {% if settings.product-display-vendor %}
           <p class="meta vendor">{{ product.vendor }}</p>
         {% endif %}
-        <h2><a href="{{ product.url }}">{{ product.title }} Subscription</a></h2>
+        <h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
         <p class="product-price">
           <span class="price">
             <span class="money">{{ selectedVariant.price | money }}</span>
@@ -108,8 +108,14 @@
               {% else %}
                 {% capture addToCartText %}{{ 'products.product.add_to_cart' | t }}{% endcapture %}
               {% endif %}
-              <input type="submit" value="{{addToCartText}}" />
-              <div class="add-to-cart-loader"></div>
+
+              {% if product.metafields.chargify.hosted_signup_url %}
+                <a class="button" style="margin-bottom: 5px" href="{{ product.metafields.chargify.hosted_signup_url }}">Subscribe</a>
+              {% else %}
+                <input type="submit" value="{{addToCartText}}" />
+                <div class="add-to-cart-loader"></div>
+              {% endif %}
+
             </div>
             {% capture cart_link %}
               <a href="/cart">{{ 'products.product.cart_link' | t }}</a>

@@ -1,0 +1,18 @@
+  <div class="product-details mobile">
+    {% if settings.product-display-vendor %}
+      <p class="meta vendor">{{ product.vendor }}</p>
+    {% endif %}
+    <p class="product-price">
+      <span class="price">
+        <span class="money">{{ selectedVariant.price | money }}</span>
+
+        {% unless product.variants.size == 1 and product.compare_at_price_min <= selectedVariant.price %}
+          <span class="original money">
+            {% if selectedVariant.compare_at_price > selectedVariant.price %}
+              {{ selectedVariant.compare_at_price | money }}
+            {% endif %}
+          </span>
+        {% endunless %}
+      </span>
+    </p>
+  </div>
