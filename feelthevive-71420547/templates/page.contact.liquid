@@ -29,6 +29,17 @@
       </div>
 
       <div class="input-wrapper">
+        <label>{{ 'general.contact_topic' | t }}</label>
+        <select name="contact[topic]">
+          <option value="general">General Inquiry</option>
+          <option value="returns">Returns</option>
+          <option value="comments">Questions, Comments or Concerns</option>
+          <option value="autoship">Autoship Questions</option>
+          <option value="other">Other</option>
+        </select> 
+      </div>
+
+      <div class="input-wrapper">
         <label>{{ 'general.message' | t }}</label>
         <textarea name="contact[body]" rows="6" class="{% if form.errors contains "body" %}error{% endif %}"></textarea>
       </div>
