@@ -607,7 +607,9 @@
           };
         })(this), 500);
       } else {
-        return Shopify.addItem(selectedVariant, quantity, (function(_this) {
+        //Bold: Use addItemFromForm so the required properties make it to the cart
+        return Shopify.addItemFromForm('product-form', (function(_this) {
+        //return Shopify.addItem(selectedVariant, quantity, (function(_this) {
           return function(cartItem) {
             return setTimeout(function() {
               if (theme.isHome && _this.$(".add-to-cart").hasClass("express")) {

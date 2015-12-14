@@ -81,13 +81,13 @@
       </div>
       {% endif %}
 
-      <form class="product-form" action="/cart/add" method="post">
+      <form class="product-form" action="/cart/add" method="post" id="product-form">
 
         {% if product.variants.size > 1 %}
           <div class="product-options" style="text-indent: 100%; white-space: nowrap; overflow: hidden; height: 0;">
             <select name="id" id="product-select" class="product-select">
               {% for variant in product.variants %}
-                <option {% if variant == selectedVariant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+                <option {% if variant == selectedVariant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_without_currency | remove: ',' }}</option>
               {% endfor %}
             </select>
           </div>
@@ -99,6 +99,20 @@
           <label for="quantity">{{ 'general.quantity' | t }}</label>
           <input type="text" name="quantity" id="quantity" value="1" />
         </div>
+
+        <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
+        <input name="email" type="hidden" value="{{ customer.email }}" > 
+        <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
+        <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
+        <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
+        <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
+        <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
+        <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
+        <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
+        <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
+        <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
+        <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+        {% include 'bold-ro' with product %}
 
         <div class="add-to-cart {% if settings.home-order-now-enable-express %}express{% endif %}">
           {% if product.available %}
@@ -112,8 +126,9 @@
               {% if product.metafields.chargify.hosted_signup_url %}
                 <a class="button" style="margin-bottom: 5px" href="{{ product.metafields.chargify.hosted_signup_url }}">Subscribe</a>
               {% else %}
-                <input type="submit" value="{{addToCartText}}" />
+                <input type="submit" value="{{addToCartText}}" class="addtocart" />
                 <div class="add-to-cart-loader"></div>
+                <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
               {% endif %}
 
             </div>
@@ -178,3 +193,16 @@
   </div>
 
 {% endif %}
+
+<script>
+$(document).on("click","[name='recurring_radio_btn']", function() {
+
+    if($('.recurring_div').hasClass('bold_active')){
+        $('.cart-additional-checkout-buttons').hide();
+    }else{
+        $('.cart-additional-checkout-buttons').show();
+    }
+});
+
+</script>
+

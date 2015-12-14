@@ -1,0 +1,15 @@
+function init() {
+	// console.log('hi');
+	
+	if (window.innerWidth < 720) {
+		// closing whitespace gap on mobile b/t header image & title on interior pages
+		var slideHeight = document.getElementById('home-slide-1').offsetHeight;
+		// console.log(slideHeight);
+
+		document.getElementById('viewing-home-slide-1').style.height = (slideHeight + 30) + 'px';
+	}
+
+}
+
+window.onload = init();
+window.onresize = init();

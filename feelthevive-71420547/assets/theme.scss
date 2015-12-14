@@ -119,21 +119,21 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 $bodyBackgroundColor: #ffffff;
-$bodyColor: #988980;
-$accentColor: #FF5555;
-$accentColorHover: #de3838;
-$headingColor: #68574D;
+$bodyColor: #000000;
+$accentColor: #ee7421;
+$accentColorHover: #eda574;
+$headingColor: #006680;
 $metaColor: #b7aba3;
 $errorColor: #B84949;
 $borderColor: #EDE7E4;
 $logoColor: #55453C;
 
 $primaryButtonColor: #ffffff;
-$primaryButtonFontFamily: Roboto, sans-serif;
-$primaryButtonFontWeight: 700;
-$secondaryButtonBackground: #C6B9B1;
+$primaryButtonFontFamily: Lato, sans-serif;
+$primaryButtonFontWeight: 400;
+$secondaryButtonBackground: #3cc3b2;
 $secondaryButtonColor: #ffffff;
-$secondaryButtonBackgroundHover: #9e918a;
+$secondaryButtonBackgroundHover: #b8e5df;
 $disabledButtonBackground: #F0F0F0;
 $disabledButtonColor: #B3B3B3;
 
@@ -141,24 +141,24 @@ $tableAltBackground: #fafafa;
 $tableHeaderBackground: #FAF7F6;
 $tableHeaderColor: #988980;
 
-$formSelectBackground: #ede7e4;
-$formSelectColor: #988980;
-$formSelectBorder: #ede7e4;
+$formSelectBackground: #eeeeee;
+$formSelectColor: #000000;
+$formSelectBorder: #eeeeee;
 
 /* Fonts */
 
-$bodyFont: Roboto, sans-serif;
+$bodyFont: Lato, sans-serif;
 
-$logoFont: Bitter, serif;
+$logoFont: Lato, sans-serif;
 $logoWeight: 700;
 
-$headingFont: Bitter, serif;
+$headingFont: Lato, sans-serif;
 $headingWeight: 700;
 
-$sectionHeadingFont: Bitter, serif;
+$sectionHeadingFont: Lato, sans-serif;
 $sectionHeadingWeight: 700;
 
-$metaFont: Roboto, sans-serif;
+$metaFont: Lato, sans-serif;
 $metaWeight: 400;
 
 /* Section specific
@@ -167,11 +167,11 @@ $metaWeight: 400;
 /* Home: contrast style */
 
 
-$contrastBackgroundColor: #FAF7F6;
-$contrastColor: #988980;
-$contrastAccentColor: #68574d;
-$contrastAccentColorHover: #967f70;
-$contrastHeadingColor: #68574D;
+$contrastBackgroundColor: #eeeeee;
+$contrastColor: #000000;
+$contrastAccentColor: #006680;
+$contrastAccentColorHover: #3cc3b2;
+$contrastHeadingColor: #006680;
 $contrastMetaColor: #c9beb7;
 $contrastBorderColor: #DCD5D1;
 $contrastErrorColor: #b84949;
@@ -191,13 +191,13 @@ $heroBackgroundColor: #ffffff;
 
 /* Home: slideshow and hero */
 
-$slideTextColor: #68574d;
+$slideTextColor: #ee7421;
 
 /* Header */
 
 $headerBackgroundColor: #ffffff;
-$actionIconsColor: #C6B9B1;
-$actionIconsColorHover: #a1958d;
+$actionIconsColor: #006680;
+$actionIconsColorHover: #3cc3b2;
 $headerSearchBackgroundColor: #FAF7F6;
 $headerSearchTextColor: #C6B9B1;
 
@@ -218,10 +218,10 @@ $productSlideshowColor: #ffffff;
 
 
 
-$footerBackgroundColor: #2C211B;
+$footerBackgroundColor: #006680;
 $footerHeaderColor: #ffffff;
-$footerAccentColor: #988980;
-$footerAccentColorHover: #b8a69a;
+$footerAccentColor: #ffffff;
+$footerAccentColorHover: #eda574;
 $footerShareTextColor: #2C211B;
 
 //************************************************************************//
@@ -554,22 +554,22 @@ $placeholders: '-webkit-input-placeholder',
 
 @font-face {
   font-family: 'Single Product Webicons Regular';
-  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.eot?18002694477971799119');
-  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.eot?%23iefix&18002694477971799119') format('embedded-opentype'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.woff?18002694477971799119') format('woff'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.ttf?18002694477971799119') format('truetype'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.svg%23singleproduct_web_iconsregular?18002694477971799119') format('svg');
+  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.eot?4286512241275558500');
+  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.eot?%23iefix&4286512241275558500') format('embedded-opentype'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.woff?4286512241275558500') format('woff'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.ttf?4286512241275558500') format('truetype'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/singleproductwebicons-regular.svg%23singleproduct_web_iconsregular?4286512241275558500') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'social-icons';
-  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.eot?18002694477971799119');
-  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.eot?%23iefix&18002694477971799119') format('embedded-opentype'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.woff?18002694477971799119') format('woff'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.ttf?18002694477971799119') format('truetype'),
-       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.svg%23sociconregular?18002694477971799119') format('svg');
+  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.eot?4286512241275558500');
+  src: url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.eot?%23iefix&4286512241275558500') format('embedded-opentype'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.woff?4286512241275558500') format('woff'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.ttf?4286512241275558500') format('truetype'),
+       url('//cdn.shopify.com/s/files/1/0993/3414/t/4/assets/socicon-webfont.svg%23sociconregular?4286512241275558500') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -584,10 +584,10 @@ body {
   line-height: 1.625;
 
   -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
   -webkit-font-smoothing: #{''} antialiased #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
 }
 
 .icon {
@@ -617,11 +617,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: $gutter;
   -webkit-font-smoothing: initial;
 
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
   -webkit-font-smoothing: #{''} antialiased #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
 
   letter-spacing: #{'  '};
   text-transform: #{'  '};
@@ -682,11 +682,11 @@ h6 {
   text-align: center;
   -webkit-font-smoothing: initial;
 
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
   -webkit-font-smoothing: #{''} antialiased #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
 
   font-size:      #{'  '}17px #{'  '};
   letter-spacing: #{'  '}0.1em #{'  '};
@@ -701,10 +701,10 @@ h6 {
   -webkit-font-smoothing: initial;
 
   -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
   -webkit-font-smoothing: #{''} antialiased #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
 
   font-size:      #{'  '}12px #{'  '};
   letter-spacing: #{'  '}0.1em #{'  '};
@@ -1119,11 +1119,11 @@ iframe {
       font-size: 24px;
       -webkit-font-smoothing: initial;
 
+      -webkit-font-smoothing: #{''};
+      -webkit-font-smoothing: #{''};
+      -webkit-font-smoothing: #{''};
+      -webkit-font-smoothing: #{''};
       -webkit-font-smoothing: #{''} antialiased #{''};
-      -webkit-font-smoothing: #{''};
-      -webkit-font-smoothing: #{''};
-      -webkit-font-smoothing: #{''};
-      -webkit-font-smoothing: #{''};
     }
   }
 
@@ -1815,11 +1815,11 @@ footer {
     margin: 0;
     -webkit-font-smoothing: initial;
 
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
     -webkit-font-smoothing: #{''} antialiased #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
 
     @include breakpoint(s) {
       line-height: 1.2;
@@ -1885,7 +1885,7 @@ a.logo {
 
     .logo-retina {
       display: block;
-      height: #{' px '};
+      height: #{' 63px '};
     }
   }
 }
@@ -2275,11 +2275,11 @@ input.header-search-input {
     position: relative;
     -webkit-font-smoothing: initial;
 
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
     -webkit-font-smoothing: #{''} antialiased #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
 
     font-size:      #{'  '}16px #{'  '};
     letter-spacing: #{'  '}0.1em #{'  '};
@@ -3918,11 +3918,11 @@ $slideshowSpeed: 0.3s;
   font-family: $headingFont;
   -webkit-font-smoothing: initial;
 
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
+  -webkit-font-smoothing: #{''};
   -webkit-font-smoothing: #{''} antialiased #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
-  -webkit-font-smoothing: #{''};
 
   a {
     color: $headingColor;
@@ -4304,10 +4304,10 @@ input[type="button"].cart-shipping-calculate {
     -webkit-font-smoothing: initial;
 
     -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
+    -webkit-font-smoothing: #{''};
     -webkit-font-smoothing: #{''} antialiased #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
-    -webkit-font-smoothing: #{''};
 
     @mixin ie8mobile {
       color: $bodyColor;

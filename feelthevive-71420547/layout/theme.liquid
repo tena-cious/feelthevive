@@ -8,6 +8,10 @@
 
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  {% if page_title == null %}
+    {% assign page_title = "There's a patch for that" %}
+  {% endif %}
 
   {% if template == 'index' %}
     <title>{{ shop.name }} | {{ page_title }}</title>
@@ -26,7 +30,7 @@
 
   {{ content_for_header }}
 
-  {% include 'social-meta' %}
+  {% include 'social-meta' %} 
 
   <!-- Theme CSS -->
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}

@@ -20,7 +20,7 @@
 
   {% if settings[enabled] %}
     {% if contentClass == 'no-content' and settings[media] == 'none' %}
-      <div class="home-module-wrapper {{ settings[style] }}">
+      <div class="home-module-wrapper {{ settings[style] }}" id="video">
         <div class="home-module home-full-width-feature has-content">
           <h2>{{ 'onboarding.full_width_section.section_title' | t }}</h2>
           <div class="rte">{{ 'onboarding.full_width_section.text' | t }}</div>
@@ -30,7 +30,7 @@
         </div>
       </div>
     {% else %}
-      <div class="home-module-wrapper full-video {{ settings[style] }}">
+      <div class="home-module-wrapper full-video {{ settings[style] }}" id="video">
 
         {% if settings[media] == 'image-highlight' %}
           <img class="home-full-width-image" alt="{{ settings[title] | strip_html | escape }}" src="{{ feature | prepend: 'home-' | append: '-image.png' | asset_url }}">

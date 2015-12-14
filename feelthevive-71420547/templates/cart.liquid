@@ -14,57 +14,139 @@
       </thead>
 
       <tbody>
+        
+        <script>mixed_cart = false;</script>
+        {% assign show_paypal = true %} 
         {% for item in cart.items %}
+        {% assign prod_index = forloop.index0 %} 
+        <input type="hidden" name="product_id[{{ forloop.index0 }}]" value="{{ item.product.id }}">
+        <input type="hidden" name="variant_id[{{ forloop.index0 }}]" value="{{ item.variant.id }}">
+        <input type="hidden" name="quantity[{{ forloop.index0 }}]" value="{{ item.quantity }}">
           <tr class="cart-item variant-{{ item.variant.id }} {% include 'for-looper' %}" data-variant="{{ item.variant.id }}" data-title="{{ item.product.title }}" data-url="{{ item.url }}">
             <td class="cart-item-product first">
               <a class="cart-image" href="{{ item.url }}"><img src="{{ item | img_url: 'small' }}" alt="{{ item.product.title }}"></a>
               <div class="cart-item-product-wrap">
                 <span class="cart-title"><a href="{{ item.url }}">{{ item.product.title }}</a></span>
+                 
+                <!-- bold-ro-liquid -->
+                {% for p in item.properties %}
+                {% if p.first == "frequency_num" %}
+                <script>
+                  mixed_cart = true;
+                </script>
+                <br>
+                <span class="bold_ro_every">Every</span>
+                <input type="hidden" name="{{ prod_index }}[number]" value={{p.last}} />
+                {% endif %}
+
+                {% if p.first == "frequency_type" %}
+                <input type="hidden" name="{{ prod_index }}[type_id]" value={{p.last}} />
+                {% endif %}
+
+                {% if p.first == "frequency_num" or p.first == "frequency_type_text" %}
+                {{ p.last }}
+                {% endif %}
+                {% if p.first == "group_id" %}
+                {% assign show_paypal = false %}
+                <input type="hidden" name="{{ prod_index }}[group_id]" value={{p.last}} />
+                {% endif %}
+                {% if p.first == "discounted_price" %}
+                <br><span class="bold_ro_discounted_price">Discounted Price</span>
+                <span class="discounted_price_in_cart">{{ p.last }} </span> <span class="bold_ro_each">each</span>
+                {% endif %}
+                {% endfor %}
+                <!-- bold-ro-liquid -->
+
                 <span class="cart-vendor vendor">{{ item.vendor }}</span>
                 {% unless item.variant.title == 'Default Title' %}
-                  <span class="cart-variant">{{ item.variant.title }}</span>
+                <span class="cart-variant">{{ item.variant.title }}</span>
                 {% endunless %}
                 {% if settings.disable-ajax or settings.show-currency-switcher %}
-                  <a class="cart-item-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'general.remove' | t }}</a>
+                  <a class="cart-item-remove bold-ro-remove" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">{{ 'general.remove' | t }}</a>
                 {% else %}
-                  <span class="cart-item-remove">{{ 'general.remove' | t }}</span>
+                <span class="cart-item-remove bold-ro-remove">{{ 'general.remove' | t }}</span>
                 {% endif %}
               </div>
             </td>
-            <td class="cart-item-price"><span class="money">{{ item.price | money }}</span></td>
+
+            <!-- FIX RO ITEM PRICES -->
+            {% if item.properties.discounted_price != blank %}
+            {% assign ro_price = item.properties.discounted_price %}
+            {% assign ro_first_character = ro_price | remove: ' ' | slice: 0 %}
+            {% assign ro_first_character_test = ro_first_character | plus: 0 %}
+
+            {% if ro_first_character_test == 0 %}
+            {% assign ro_price = ro_price | remove: ro_first_character %}
+            {% endif %}
+
+            {% assign ro_item_price = ro_price | split: ' ' | first | times: 100 %}
+            {% assign ro_line_item_price = ro_item_price | times: item.quantity %}
+
+            {% else %}
+            {% assign ro_item_price = item.price %}
+            {% assign ro_line_item_price = item.line_price %}    
+            {% endif %}
+            <!-- END RO ITEM PRICES -->
+
+            <td class="cart-item-price"><span class="money">{{ ro_item_price | money }}</span></td>
             <td class="cart-item-quantity" {% unless item.variant.inventory_management == blank or item.variant.inventory_policy == 'continue' %}data-max="{{ item.variant.inventory_quantity }}"{% endunless %}>
               <input type="text" name="updates[]" class="cart-item-quantity-display" value="{{ item.quantity }}" size="1">
               <span class="cart-item-decrease icon">&#57364;</span>
               <span class="cart-item-increase icon">&#57365;</span>
             </td>
-            <td class="cart-item-total last"><span class="money">{{ item.quantity | times: item.price | money }}</span></td>
-          </tr>
+            <td class="cart-item-total last"><span class="money">{{ item.quantity | times: ro_item_price | money }}</span></td>
+        </tr>
         {% endfor %}
       </tbody>
 
     </table>
+
+    <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
+    <input name="email" type="hidden" value="{{ customer.email }}" > 
+    <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
+    <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
+    <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
+    <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
+    <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
+    <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
+    <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
+    <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
+    <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
+    <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+    {% include 'bold-ro-cart' %}
 
     <div class="cart-tools">
 
       {% if settings.cart-show-special-instructions %}
       <div class="cart-instructions">
         <p>{{ 'cart.instructions_title' | t }}</p>
-        <textarea rows="6" name="note" placeholder="{{ 'cart.instructions_placeholder' | t }}">{{ cart.note }}</textarea>
+        <textarea rows="3" name="note" placeholder="{{ 'cart.instructions_placeholder' | t }}">{{ cart.note }}</textarea>
+
+        <p><label for="source">How did you hear about us?</label></p>
+        <select type="text" name="attributes[source-type]" value="{{ cart.attributes.source-type }}" placeholder="Source..." required />
+          <option value="">Pick an option</option>
+          <option value="dale"{% if cart.attributes.source-type == 'dale' %} selected="selected"{% endif %}>Dale Noack</option>
+          <option value="stephanie"{% if cart.attributes.source-type == 'stephanie' %} selected="selected"{% endif %}>Stephanie McMillan</option>
+          <option value="michael"{% if cart.attributes.source-type == 'michael' %} selected="selected"{% endif %}>Michael McMillan</option>
+          <option value="facebook"{% if cart.attributes.source-type == 'facebook' %} selected="selected"{% endif %}>Facebook</option>
+          <option value="twitter"{% if cart.attributes.source-type == 'twitter' %} selected="selected"{% endif %}>Twitter</option>
+          <option value="instagram"{% if cart.attributes.source-type == 'instagram' %} selected="selected"{% endif %}>Instagram</option>
+          <option value="none"{% if cart.attributes.source-type == 'none' %} selected="selected"{% endif %}>None of these</option>
+        </select>   
       </div>
       {% endif %}
 
       <div class="cart-totals">
-        <p class="cart-price"><span class="money">{{ cart.total_price | money }}</span></p>
+        <p class="cart-price">
+          {% include 'bold-ro-price-fix' %}
+          <span class="money">{{ ro_cart_total | money }}</span></p>
         <p class="cart-message meta">{{ 'cart.tax_and_shipping' | t }}</p>
 
-        {% if settings.disable-ajax or settings.show-currency-switcher %}
           <input type="submit" name="update" value="{{ 'cart.update_button' | t }}" class="secondary">
           <input type="submit" name="checkout" value="{{ 'cart.submit' | t }}">
-        {% else %}
-          <a class="cart-checkout button" href="/checkout">{{ 'cart.submit' | t }}</a>
-        {% endif %}
 
-        {% if additional_checkout_buttons %}
+
+        {% if additional_checkout_buttons and show_paypal %}
           <div class="cart-additional-checkout-buttons">
             {{ content_for_additional_checkout_buttons }}
           </div>
@@ -126,3 +208,16 @@
   <p class="empty">{{ 'cart.empty' | t }} <a href="{{ shop.url }}/collections/all">{{ 'cart.continue' | t }}</a></p>
 
 {% endif %}
+
+<script>
+$(document).on("click","[name='recurring_radio_btn']", function() {
+
+    if($('.recurring_div').hasClass('bold_active')){
+        $('.cart-additional-checkout-buttons').hide();
+    }else{
+        $('.cart-additional-checkout-buttons').show();
+    }
+});
+
+</script>
+

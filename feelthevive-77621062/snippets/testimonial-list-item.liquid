@@ -1,0 +1,35 @@
+{% assign item = product %}
+{% if template contains 'search' %}
+  {% assign item = item %}
+{% elsif template contains 'product' %}
+  {% assign item = prod %}
+{% endif %}
+
+{% if settings.product-stock-level-overlay and item.available %}
+  {% assign total = 0 %}
+  {% assign threshold = settings.product-stock-level-overlay-threshold | times: 1 %}
+  {% assign infinity = false %}
+  {% for variant in item.variants %}
+    {% if variant.inventory_management == null %}
+      {% assign infinity = true %}
+    {% elsif variant.inventory_management == '' %}
+      {% assign infinity = true %}
+    {% elsif infinity == false %}
+      {% capture temp %}{{ total | plus: variant.inventory_quantity }}{% endcapture %}
+      {% assign total = temp | times: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+<div class="home-testimonial has-avatar">
+  
+  <img src="{{ item.featured_image.src | product_img_url: 'grande' }}" alt="{{ item.featured_image.alt | escape }}" class="home-testimonial-avatar">        
+
+  <blockquote class="home-testimonial-quote">
+    {{ item.description }}
+  </blockquote>
+  
+  <p class="home-testimonial-quote-source">&ndash; {{ product.title | remove_first: "Testimonial: " }}</p>
+  
+</div>

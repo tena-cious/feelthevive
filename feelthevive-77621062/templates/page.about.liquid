@@ -1,0 +1,46 @@
+{% capture tech_page_handle %}{{ page.handle | append: '-the-technology' }}{% endcapture %}
+{% capture founders_page_handle %}{{ page.handle | append: '-the-founders' }}{% endcapture %}
+
+
+<div class="home-slideshow-wrapper full-width transition-fade slides-ready" style="height: 664px;" id="viewing-home-slide-1">
+  <div class="home-slideshow">
+    
+      <div class="home-slide home-slide-1 text-aligned-right active" id="home-slide-1">
+          <img src="{{ 'hero_about.jpg' | asset_url }}" alt="FEEL THE VIVE" class="slide-image">
+          <div class="slide-text ">
+              <h2>FEEL<br>THE<br>VIVE</h2>
+              <!--<a href="#" class="button"><img src="{{ 'button_sample.png' | asset_url }}" alt="Grab up your free sample"></a>-->
+	            {% if settings.slide-1-cta.size > 0 and settings.slide-1-url.size > 0 %}
+	              <a class="button" href="{{ settings.slide-1-url }}">{{ settings.slide-1-cta }}</a>
+	            {% endif %}
+          </div>
+      </div>
+    
+  </div>
+</div>
+
+<!--<div class="home-module-wrapper">
+	<div class="home-module home-in-line-features">
+		<h2>{{ pages[tech_page_handle].title | remove_first: "About" }}</h2>
+		{{ pages[tech_page_handle].content }}
+	</div>
+</div>-->
+
+<div class="home-module-wrapper">
+	<div class="home-module home-full-width-feature has-content">
+		<h2>{{ page.title }}</h2>
+		
+		<div class="rte">
+		  {{ page.content }}
+		</div>
+	</div>
+</div>
+
+<div class="home-module-wrapper contrast">
+	<div class="home-module home-full-width-feature has-content">
+		<h2>{{ pages[founders_page_handle].title }}</h2>
+		<div class="rte">
+			{{ pages[founders_page_handle].content }}
+		</div>
+	</div>
+</div>

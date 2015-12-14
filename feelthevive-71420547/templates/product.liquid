@@ -28,13 +28,15 @@
       </p>
     </div>
 
-    <form class="product-form" action="/cart/add" method="post">
+    <form class="product-form" action="/cart/add" method="post" id="product-form">
 
+      
+      
       {% if product.variants.size > 1 %}
         <div class="product-options">
           <select name="id" id="product-select" class="product-select">
             {% for variant in product.variants %}
-              <option {% if variant == selectedVariant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+              <option {% if variant == selectedVariant %} selected="selected" {% endif %} value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
             {% endfor %}
           </select>
         </div>
@@ -46,21 +48,29 @@
         <label for="quantity">{{ 'general.quantity' | t }}</label>
         <input type="text" name="quantity" id="quantity" value="1" />
       </div>
+      
+      <input name="shopify_customer_id" type="hidden" value="{{ customer.id }}" > 
+      <input name="email" type="hidden" value="{{ customer.email }}" > 
+      <input name="address1" type="hidden" value="{{ customer.default_address.address1 }}" > 
+      <input name="address2" type="hidden" value="{{ customer.default_address.address2 }}" > 
+      <input name="city" type="hidden" value="{{ customer.default_address.city }}" > 
+      <input name="company" type="hidden" value="{{ customer.default_address.company }}" > 
+      <input name="country" type="hidden" value="{{ customer.default_address.country }}" > 
+      <input name="first_name" type="hidden" value="{{ customer.default_address.first_name }}" > 
+      <input name="last_name" type="hidden" value="{{ customer.default_address.last_name }}" > 
+      <input name="phone" type="hidden" value="{{ customer.default_address.phone }}" > 
+      <input name="province" type="hidden" value="{{ customer.default_address.province }}" > 
+      <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
+      {% include 'bold-ro' with product %}
 
-      <div class="add-to-cart cf">
+      <div class="add-to-cart cf addtocart">
+  
         {% if product.available %}
           <div class="product-form-submit-wrap left">
-
-            {% if product.metafields.chargify.hosted_signup_url %}
-              <a class="button" style="margin-bottom: 5px" href="{{ product.metafields.chargify.hosted_signup_url }}">Signup</a>
-            {% else %}
-              <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" />
-            {% endif %}
-
+              <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" class="addtocart"/>
+			  <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
             <div class="add-to-cart-loader"></div>
           </div>
-
-          <p class="product-add-success-message left"><a class="button secondary" href="/checkout">{{ 'products.product.checkout_link' | t }}</a></p>
 
           {% capture cart_link %}
             <a href="/cart">{{ 'products.product.cart_link' | t }}</a>

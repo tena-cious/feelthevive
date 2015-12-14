@@ -13,6 +13,7 @@
     <p class="customer-address">
       {% assign address = customer.default_address %}
       <span><strong>{{ address.first_name }} {{ address.last_name }}</strong></span><br>
+      <a href="https://{{shop.permanent_domain}}/tools/checkout/front_end/login">Manage Subscription</a>
       {% if address.company.size > 0 %}
         <span>{{ address.company }}</span><br>
       {% endif %}
