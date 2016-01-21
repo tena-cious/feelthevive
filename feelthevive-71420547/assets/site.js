@@ -624,6 +624,8 @@
                 if (!Modernizr.cssanimations) {
                   _this.addToCartButton.val(Theme.addToCartText);
                 }
+
+                if(typeof(upsell_offer) === "function"){ upsell_offer(); } 
               }
               return _this.processing = false;
             }, 1000);

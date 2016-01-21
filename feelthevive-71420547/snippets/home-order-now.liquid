@@ -136,7 +136,7 @@
               <a href="/cart">{{ 'products.product.cart_link' | t }}</a>
             {% endcapture %}
             {% capture continue_link %}
-              <a href="/collections/all">{{ 'products.product.continue_link' | t }}</a>
+              <a href="/collections/vive-patches">{{ 'products.product.continue_link' | t }}</a>
             {% endcapture %}
             {% capture checkout_link %}
               <a href="/checkout">{{ 'products.product.checkout_link' | t }}</a>
@@ -144,7 +144,7 @@
             {% capture product_item %}
               <span class='added-product-name'></span>
             {% endcapture %}
-            <p class="product-add-success-message">{{ 'products.product.success_html' | t: cart_link: cart_link, continue_link: continue_link, checkout_link: checkout_link, product: product_item  }}</p>
+            <p class="product-add-success-message">{{ 'products.product.success_html' | t: cart_link: cart_link, continue_link: continue_link, checkout_link: checkout_link, product: product_item  }}</p> 
             <p class="product-add-error-message"></p>
           {% else %}
             <input type="button" class="disabled" disabled="disabled" value="{{ 'products.product.sold_out' | t }}" />

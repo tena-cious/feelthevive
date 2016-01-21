@@ -121,7 +121,7 @@
               <a href="/cart">{{ 'products.product.cart_link' | t }}</a>
             {% endcapture %}
             {% capture continue_link %}
-              <a href="/collections/all">{{ 'products.product.continue_link' | t }}</a>
+              <a href="/collections/vive-patches">{{ 'products.product.continue_link' | t }}</a>
             {% endcapture %}
             {% capture checkout_link %}
               <a href="/checkout">{{ 'products.product.checkout_link' | t }}</a>
