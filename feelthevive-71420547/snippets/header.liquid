@@ -68,12 +68,12 @@
   {% endif %}
 {% endunless %}
 
-<div class="main-header-wrapper {{ additionalClasses }}">
+<div class="main-header-wrapper {{ additionalClasses }}" id="main-header-wrapper">
   <header class="main-header" role="banner">
 
     <div class="branding">
       {% if settings.use-logo %} 
-        <a class="logo {% if settings.use-retina-logo %}has-retina{% endif %}" href="/">
+        <a class="logo {% if settings.use-retina-logo %}has-retina{% endif %}" href="/" title="{{ shop.name | escape }}">
 
           {% assign regularLogo = 'logo.png' | asset_url %}
           {% if fullBleedIndex and settings.home-bleed-use-logo %}
@@ -97,7 +97,7 @@
           {% endif %}
         </a>
       {% else %}
-        <h1><a href="/">{{ shop.name }}</a></h1>
+        <h1><a href="/" title="{{ shop.name }}">{{ shop.name }}</a></h1>
       {% endif %}
     </div>
 
@@ -134,11 +134,11 @@
           <span class="header-search-toggle">&#57347;</span>
         {% endif %}
         {% if settings.header-show-cart %}
-          <a class="cart-link" href="/cart">&#57346;<span class="cart-count">{{ cart.item_count }}</span></a>
+          <a class="cart-link" href="/cart">&#57346;<span class="cart-count" title="{{ cart.item_count }} items in cart">{{ cart.item_count }}</span></a>
         {% endif %}
         {% if settings.header-navigation-location == 'header' or settings.header-navigation-location == 'below-header' %}
           {% if shop.customer_accounts_enabled %}
-            <a href="/account" class="account-link">&#57348;</a>
+            <a href="/account" class="account-link" title="Account Link">&#57348;</a>
           {% endif %}
         {% endif %}
         <span class="drawer-toggle"></span>
@@ -156,13 +156,13 @@
 {% endif %}
 
 <div class="header-drawer">
-  <h1><a href="/">{{ shop.name }}</a></h1>
+  <h1><a href="/" title="{{ shop.name }}">{{ shop.name }}</a></h1>
 
   <span class="drawer-toggle icon">&#57349;</span>
 
   {% include 'navigation' %}
 
   {% if shop.customer_accounts_enabled %}
-    <a href="/account" class="drawer-account-link"><span class="icon">&#57351;</span> {{ 'general.my_account' | t }}</a>
+    <a href="/account" class="drawer-account-link" title="{{ 'general.my_account' | t }}"><span class="icon">&#57351;</span> {{ 'general.my_account' | t }}</a>
   {% endif %}
 </div>

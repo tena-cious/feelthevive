@@ -18,6 +18,7 @@
     "price": "Price",
     "product": "Product",
     "quantity": "Quantity",
+    "quantity_short": "Qty",
     "remove": "Remove",
     "search_placeholder": "Enter search terms",
     "submit": "Submit",

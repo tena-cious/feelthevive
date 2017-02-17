@@ -28,17 +28,17 @@
       </p>
     </div>
 
-    <form class="product-form" action="/cart/add" method="post" id="product-form">
-
-      
+    <form class="product-form" action="/cart/add" method="post" id="product-form">      
       
       {% if product.variants.size > 1 %}
         <div class="product-options">
           <select name="id" id="product-select" class="product-select">
             {% for variant in product.variants %}
               <option {% if variant == selectedVariant %} selected="selected" {% endif %} value="{{ variant.id }}" data-price="{{ variant.price | money_without_currency | remove: ',' }}">{{ variant.title }} - {{ variant.price | money }}</option>
+
             {% endfor %}
           </select>
+
         </div>
       {% else %}
         <input type="hidden" name="id" class="product-select" value="{{ product.variants[0].id }}" data-variant-title="{{ product.variants[0].title }}" />
@@ -63,12 +63,12 @@
       <input name="zip" type="hidden" value="{{ customer.default_address.zip }}" >
       {% include 'bold-ro' with product %}
 
-      <div class="add-to-cart cf addtocart">
+      <div class="add-to-cart cf {% comment %}addtocart -- Bold T2: This class should only be added to the add to cart button.{%endcomment %}">
   
         {% if product.available %}
           <div class="product-form-submit-wrap left">
               <input type="submit" value="{{ 'products.product.add_to_cart' | t }}" class="addtocart"/>
-      			  <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
+              <!-- bold-ro-liquid --> <div class="bold_add_to_orders" style="display: inline-block;"> </div> <!-- bold-ro-liquid -->
             <div class="add-to-cart-loader"></div>
           </div>
 
@@ -143,6 +143,7 @@
         <p><em>{{ disclaimers.disclaimer }}</em></p>
       </div>
     {% endif %}
+
 
 {% include 'product-page-related' %}
 
